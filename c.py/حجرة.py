@@ -24,3 +24,13 @@ async def process_choice(event, user_choice):
         (user_choice == "paper" and bot_choice_key == "rock") or 
         (user_choice == "cuter" and bot_choice_key == "paper")
     ) else "😢خسرت"
+    await event.edit(f"[{n}](tg://user?id={user_id}) {choices[user_choice]}\n[مخفي](tg://user?id=7908156943) {bot_choice}\n\n{result}")
+@ABH.on(events.CallbackQuery(data=b"rock"))
+async def rock_callback(event):
+    await process_choice(event, "rock")
+@ABH.on(events.CallbackQuery(data=b"cuter"))
+async def cuter_callback(event):
+    await process_choice(event, "cuter")
+@ABH.on(events.CallbackQuery(data=b"paper"))
+async def paper_callback(event):
+    await process_choice(event, "paper")
