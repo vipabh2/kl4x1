@@ -1,24 +1,16 @@
 from telethon import TelegramClient, events
-from config import api_id, api_hash, bot_token  # استخدم الأسماء الصغيرة
+from config import api_id, api_hash, bot_token
+from start import start_handler  # استيراد أمر start
+from help import help_handler    # استيراد أمر help
 
 def main():
     # تهيئة البوت
     client = TelegramClient('bot', api_id, api_hash).start(bot_token=bot_token)
     
-    @client.on(events.NewMessage(pattern='/start'))
-    async def start(event):
-        await event.reply('مرحباً! كيف يمكنني مساعدتك؟')
+    # ربط الأوامر بالبوت
+    client.add_event_handler(start_handler)
+    client.add_event_handler(help_handler)
     
-    @client.on(events.NewMessage(pattern='/help'))
-    async def help(event):
-        help_text = """
-        الأوامر المتاحة:
-        /start - بدء التفاعل مع البوت
-        /help - عرض هذا النص
-        """
-        await event.reply(help_text)
-    
-    # بدء البوت
     client.run_until_disconnected()
 
 if __name__ == '__main__':
