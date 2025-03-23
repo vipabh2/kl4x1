@@ -1,4 +1,4 @@
-from telethon import event
+from telethon import event, Button
 
 @ABH.on(events.NewMessage(pattern=r'^اوامري|اوامر$'))
 async def start(event):
