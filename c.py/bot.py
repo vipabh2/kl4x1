@@ -1,5 +1,5 @@
 from telethon import TelegramClient, events
-from config import api_id, api_hash, bot_token
+from config import api_id, api_hash, bot_token  # استخدم الأسماء الصغيرة
 
 def main():
     # تهيئة البوت
