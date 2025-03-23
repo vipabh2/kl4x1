@@ -1,9 +1,9 @@
 from telethon import TelegramClient, events
-from config import API_ID, API_HASH, BOT_TOKEN
+from config import api_id, api_hash, bot_token  # استخدم الأسماء الصغيرة
 
 def main():
     # تهيئة البوت
-    client = TelegramClient('bot', API_ID, API_HASH).start(bot_token=BOT_TOKEN)
+    client = TelegramClient('bot', api_id, api_hash).start(bot_token=bot_token)
     
     @client.on(events.NewMessage(pattern='/start'))
     async def start(event):
