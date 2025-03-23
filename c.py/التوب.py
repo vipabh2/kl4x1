@@ -1,5 +1,5 @@
 import asyncio, datetime
-from telethon import event
+from telethon import events
 uinfo = {}
 uinfo = defaultdict(lambda: defaultdict(lambda: {"msg": 0}))
 @ABH.on(events.NewMessage)
