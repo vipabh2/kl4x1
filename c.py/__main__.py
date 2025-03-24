@@ -1,6 +1,6 @@
 from telethon import TelegramClient, events
 from config import api_id, api_hash, bot_token
-import c
+from kl4x1 import c
 def main():
     # تهيئة البوت
     client = TelegramClient('bot', api_id, api_hash).start(bot_token=bot_token)
