@@ -1,4 +1,5 @@
-
+from telethon import events
+import random
 mohmurl = random.randint(119, 138)
 basimurl = random.randint(50, 118)
 musurl = random.randint(139, 154)
