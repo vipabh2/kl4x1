@@ -1,5 +1,4 @@
 from telethon import event
-from playwright.async_api import async_playwright # type: ignore
 @ABH.on(events.NewMessage(pattern=r'كشف ايدي (\d+)'))
 async def permalink(event):
     global user, uid
