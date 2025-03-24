@@ -34,3 +34,18 @@ async def take_screenshot(url, device="pc"):
         finally:
             await browser.close()
     return screenshot_path
+@ABH.on(events.NewMessage(pattern=r'كشف رابط|سكرين (.+)'))
+async def handler(event):
+    url = event.pattern_match.group(1)
+        await event.reply("هذا الموقع محظور! \nجرب تتواصل مع المطور @k_4x1")
+        return
+    devices = ['pc', 'android', 'user_agent']
+    screenshot_paths = []
+    for device in devices:
+        screenshot_path = await take_screenshot(url, device)
+        if screenshot_path:
+            screenshot_paths.append(screenshot_path)
+    if screenshot_paths:
+        await event.reply(f'✅ تم التقاط لقطات الشاشة للأجهزة التالية: **PC، Android**', file=screenshot_paths)
+    else:
+        await event.reply("🙄 هنالك خطأ أثناء التقاط لقطة الشاشة، تأكد من صحة الرابط أو جرب مجددًا.")
