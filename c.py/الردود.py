@@ -1,5 +1,6 @@
-from telethon import event
 import google.generativeai as genai
+from telethon import event
+import random
 GEMINI = "AIzaSyA5pzOpKVcMGm6Aek82KoB3Pk94dYg3LX4"
 genai.configure(api_key=GEMINI)
 model = genai.GenerativeModel("gemini-1.5-flash")
@@ -18,8 +19,6 @@ async def ai(event):
             await event.reply(f"**{ABH_response.text}**")
         except Exception as e:
             await event.reply(f"صار خطأ: {e}")
-import random
-from telethon import events
 abh = [
     "ها",
     "تفظل",
