@@ -1,6 +1,6 @@
 from telethon import TelegramClient, events
-from config import api_id, api_hash, bot_token  # استخدم الأسماء الصغيرة
-
+from config import api_id, api_hash, bot_token
+import c.py
 def main():
     # تهيئة البوت
     client = TelegramClient('bot', api_id, api_hash).start(bot_token=bot_token)
