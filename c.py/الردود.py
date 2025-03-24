@@ -1,4 +1,8 @@
-from telethon import event 
+from telethon import event
+import google.generativeai as genai
+GEMINI = "AIzaSyA5pzOpKVcMGm6Aek82KoB3Pk94dYg3LX4"
+genai.configure(api_key=GEMINI)
+model = genai.GenerativeModel("gemini-1.5-flash")
 @ABH.on(events.NewMessage(pattern=r'(?i)مخفي'))
 async def ai(event):
     if event.text.strip() == "مخفي طكة زيج":
